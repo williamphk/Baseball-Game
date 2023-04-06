@@ -12,33 +12,37 @@ body {
 }
 
 .game-container {
+  margin-top: 5%;
   position: relative;
-  width: 90%;
+  width: 100%;
   height: 90%;
-  background-image: url("/images/1950.jpg");
+  background-image: url("../images/1950.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
 .ball {
   position: absolute;
   font-size: 50px;
-  animation: ballFly 4s linear infinite, ballRotate 2s linear infinite;
+  user-select: none;
+  animation: ballFly 2s linear forwards infinite;
 }
 
 .clickable-area {
   position: absolute;
-  bottom: 10%;
-  left: 50%;
-  width: 15%;
-  height: 30%;
+  bottom: 5%;
+  left: 42%;
+  width: 29%;
+  height: 37%;
   transform: translate(-50%, 0);
   cursor: pointer;
 }
 
 .bat {
   position: absolute;
-  width: 13%;
-  height: 145%;
+  width: 8%;
+  height: 135%;
   bottom: 0;
   background-color: #814200;
   transform-origin: bottom;
@@ -51,23 +55,13 @@ body {
 
 @keyframes ballFly {
   0% {
-    left: 0;
-    top: 70%;
-    transform: rotate(0deg);
+    transform: translateX(0vw) translateY(68vh) rotate(0deg);
+  }
+  50% {
+    transform: translateX(50vw) translateY(68vh) rotate(180deg);
   }
   100% {
-    left: 100%;
-    top: 70%;
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes ballRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+    transform: translateX(100vw) translateY(68vh) rotate(360deg);
   }
 }
 
@@ -79,5 +73,22 @@ body {
   100% {
     bottom: 8%;
     transform: rotate(65deg);
+  }
+}
+
+.hit-ball {
+  width: 700px;
+  animation: ballHit 1.1s ease-in;
+  user-select: none;
+}
+
+@keyframes ballHit {
+  0% {
+    transform: translateX(45vw) translateY(68vh) rotate(0deg);
+    font-size: 50px;
+  }
+  100% {
+    transform: translateX(30vw) translateY(100vh) rotate(150deg);
+    font-size: 0px;
   }
 }
