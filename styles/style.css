@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  background-image: url("/images/1950.jpg");
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  font-size: 50px;
+  animation: ballFly 4s linear infinite, ballRotate 2s linear infinite;
+}
+
+.clickable-area {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 15%;
+  height: 30%;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+}
+
+.bat {
+  position: absolute;
+  width: 13%;
+  height: 145%;
+  bottom: 0;
+  background-color: #814200;
+  transform-origin: bottom;
+  transform: rotate(75deg);
+}
+
+.clickable-area:hover .bat {
+  animation: batMove 0.75s alternate infinite;
+}
+
+@keyframes ballFly {
+  0% {
+    left: 0;
+    top: 70%;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: 100%;
+    top: 70%;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ballRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes batMove {
+  0% {
+    bottom: 0;
+    transform: rotate(75deg);
+  }
+  100% {
+    bottom: 8%;
+    transform: rotate(65deg);
+  }
+}
