@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -11,15 +13,114 @@ body {
   height: 100vh;
 }
 
+h1 {
+  user-select: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  text-align: center;
+  color: yellow;
+  font-size: 5em;
+  transform: skew(-15deg);
+  animation: title-color 4s linear, title-move 4s linear;
+}
+
+@keyframes title-move {
+  0% {
+    top: 100%;
+  }
+  50% {
+    top: 50%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+@keyframes title-color {
+  0% {
+    color: yellow;
+  }
+  7.5% {
+    color: yellow;
+  }
+  9% {
+    color: black;
+  }
+  16.5% {
+    color: black;
+  }
+  21% {
+    color: red;
+  }
+  28.5% {
+    color: red;
+  }
+  30% {
+    color: pink;
+  }
+  37.5% {
+    color: pink;
+  }
+  39% {
+    color: green;
+  }
+  46.5% {
+    color: green;
+  }
+  48% {
+    color: blue;
+  }
+  55.5% {
+    color: blue;
+  }
+  57% {
+    color: greenyellow;
+  }
+  64.5% {
+    color: greenyellow;
+  }
+  66% {
+    color: purple;
+  }
+  73.5% {
+    color: purple;
+  }
+  75% {
+    color: orange;
+  }
+  82.5% {
+    color: orange;
+  }
+  84% {
+    color: aqua;
+  }
+  100% {
+    color: aqua;
+  }
+}
+
 .game-container {
-  margin-top: 5%;
   position: relative;
   width: 100%;
-  height: 90%;
+  height: 100%;
   background-image: url("../images/1950.jpg");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
+  animation: change-color 30s 1 normal ease-in-out both 52s;
+}
+
+@keyframes change-color {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  1% {
+    filter: hue-rotate(100deg);
+  }
+  100% {
+    filter: hue-rotate(241.5deg);
+  }
 }
 
 .ball {
@@ -27,52 +128,71 @@ body {
   font-size: 50px;
   user-select: none;
   animation: ballFly 2s linear forwards infinite;
+  opacity: 0;
+}
+
+.delay-first-instance {
+  animation-delay: 4s;
 }
 
 .clickable-area {
   position: absolute;
-  bottom: 5%;
-  left: 42%;
-  width: 29%;
-  height: 37%;
+  bottom: 20%;
+  left: 50%;
+  width: 10%;
+  height: 15%;
   transform: translate(-50%, 0);
   cursor: pointer;
+  border: #d7172a 2px dotted;
+  border-radius: 5px;
+  z-index: 1;
+  display: none;
 }
 
 .bat {
-  position: absolute;
-  width: 8%;
-  height: 135%;
-  bottom: 0;
-  background-color: #814200;
-  transform-origin: bottom;
-  transform: rotate(75deg);
+  position: fixed;
+  bottom: 20%;
+  left: 30%;
+  rotate: -10deg;
+  display: none;
 }
 
-.clickable-area:hover .bat {
-  animation: batMove 0.75s alternate infinite;
+.red {
+  fill: #d7172a;
+}
+
+.tan {
+  fill: #ffd87d;
+}
+
+.white {
+  fill: #ffffff;
+}
+
+.bat-click {
+  animation: batMove 0.3s cubic-bezier(0.63, 0.09, 0.75, 0.46) 1 alternate;
 }
 
 @keyframes ballFly {
   0% {
+    opacity: 1;
     transform: translateX(0vw) translateY(68vh) rotate(0deg);
   }
   50% {
     transform: translateX(50vw) translateY(68vh) rotate(180deg);
   }
   100% {
+    opacity: 1;
     transform: translateX(100vw) translateY(68vh) rotate(360deg);
   }
 }
 
 @keyframes batMove {
   0% {
-    bottom: 0;
-    transform: rotate(75deg);
+    transform: rotate(10deg);
   }
   100% {
-    bottom: 8%;
-    transform: rotate(65deg);
+    transform: rotate(-35deg);
   }
 }
 
@@ -88,7 +208,66 @@ body {
     font-size: 50px;
   }
   100% {
-    transform: translateX(30vw) translateY(100vh) rotate(150deg);
+    transform: translateX(30vw) translateY(100vh) rotate(165deg);
     font-size: 0px;
+  }
+}
+.dialogue {
+  position: fixed;
+  width: 80%;
+  height: 10%;
+  bottom: 5%;
+  background-color: #ffffff71;
+  border: rgb(43, 226, 226) 4px solid;
+  font-size: 2em;
+  font-family: "Press Start 2P", cursive;
+  padding: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.sun {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  animation: sun-move 60s 1 normal ease-in-out both 22s,
+    sun-color-change 60s 1 normal ease-in-out both 22s;
+}
+
+@keyframes sun-move {
+  /* your keyframe styles go here */
+  0% {
+    top: calc(100%);
+    left: 100%;
+  }
+  50% {
+    top: calc(0px + 100px); /* 100% down minus height of ball */
+    left: calc(50% - 50px); /* 50% across minus half width of ball */
+  }
+  100% {
+    top: calc(100%);
+    left: 0;
+  }
+}
+@keyframes sun-color-change {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: orangered;
   }
 }
