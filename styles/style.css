@@ -20,7 +20,7 @@ h1 {
   top: 0;
   text-align: center;
   color: yellow;
-  font-size: 5em;
+  font-size: clamp(3.75rem, 3.3796rem + 1.8519vw, 5rem);
   transform: skew(-15deg);
   animation: title-color 4s linear, title-move 4s linear;
 }
@@ -125,7 +125,7 @@ h1 {
 
 .ball {
   position: absolute;
-  font-size: 50px;
+  font-size: clamp(1.875rem, 1.5046rem + 1.8519vw, 3.125rem);
   user-select: none;
   animation: ballFly 2s linear forwards infinite;
   opacity: 0;
@@ -139,22 +139,32 @@ h1 {
   position: absolute;
   bottom: 20%;
   left: 50%;
-  width: 10%;
-  height: 15%;
+  width: 10vw;
+  height: 10vw;
   transform: translate(-50%, 0);
   cursor: pointer;
   border: #d7172a 2px dotted;
   border-radius: 5px;
   z-index: 1;
   display: none;
+  background-color: #ffffff00;
+}
+
+.screen-reader {
+  display: block;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
 
 .bat {
   position: fixed;
   bottom: 20%;
-  left: 30%;
+  left: 25vw;
   rotate: -10deg;
   display: none;
+  width: clamp(14.5625rem, 12.6366rem + 9.6296vw, 21.0625rem);
+  height: 43px;
 }
 
 .red {
@@ -205,7 +215,7 @@ h1 {
 @keyframes ballHit {
   0% {
     transform: translateX(45vw) translateY(68vh) rotate(0deg);
-    font-size: 50px;
+    font-size: clamp(1.875rem, 1.5046rem + 1.8519vw, 3.125rem);
   }
   100% {
     transform: translateX(30vw) translateY(100vh) rotate(165deg);
@@ -219,7 +229,7 @@ h1 {
   bottom: 5%;
   background-color: #ffffff71;
   border: rgb(43, 226, 226) 4px solid;
-  font-size: 2em;
+  font-size: clamp(0.875rem, 0.5417rem + 1.6667vw, 2rem);
   font-family: "Press Start 2P", cursive;
   padding: 5px;
   margin-left: 10%;

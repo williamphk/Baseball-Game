@@ -10,17 +10,21 @@
   </head>
   <body>
     <h1 id="game-title">Baseball</h1>
-    <div class="game-container" id="game-container">
-      <div id="sun" class="sun"></div>
-      <div class="ball delay-first-instance" id="ball">⚾</div>
-      <div class="clickable-area" id="clickable-area"></div>
+    <main class="game-container" id="game-container">
+      <div id="sun" class="sun" aria-label="Sun"></div>
+      <div class="ball delay-first-instance" id="ball" aria-label="Baseball">
+        ⚾
+      </div>
+      <button class="clickable-area" id="clickable-area">
+        <span class="screen-reader">Click to hit the ball</span>
+      </button>
       <svg
         id="bat"
         class="bat"
-        width="337"
-        height="43"
         viewBox="0 0 337.4 42.6"
+        aria-labelledby="batTitle"
       >
+        <title id="batTitle">Baseball bat</title>
         <path
           class="tan"
           d="M95.2 12.7c-36.4 1.4-74.9-0.2-85-0.7C8.9 7.1 6 7.3 6 7.3s-6 1-6 13.8 4.7 14.8 6.5 14.8c2.5 0 3.4-4.2 3.6-5.2 10.1-0.5 48.6-2.1 85-0.7 15.5 0.6 42.9 2 72 3.6V9.1C138 10.7 110.6 12.1 95.2 12.7z"
@@ -34,7 +38,7 @@
           d="M167.1 9.1v24.3c6.9 0.4 13.8 0.7 20.8 1.1V8C181 8.4 174 8.7 167.1 9.1z"
         />
       </svg>
-      <div id="dialogue" class="dialogue"></div>
-    </div>
+      <div id="dialogue" class="dialogue" aria-label="Game dialogue"></div>
+    </main>
   </body>
 </html>
