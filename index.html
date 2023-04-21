@@ -11,7 +11,9 @@
   <body>
     <h1 id="game-title">Baseball</h1>
     <main class="game-container" id="game-container">
-      <div id="sun" class="sun" aria-label="Sun"></div>
+      <div class="sun-container">
+        <div id="sun" class="sun" aria-label="Sun"></div>
+      </div>
       <div class="ball delay-first-instance" id="ball" aria-label="Baseball">
         ⚾
       </div>
@@ -38,7 +40,9 @@
           d="M167.1 9.1v24.3c6.9 0.4 13.8 0.7 20.8 1.1V8C181 8.4 174 8.7 167.1 9.1z"
         />
       </svg>
+      <!-- Source: https://codepen.io/dennisgood/pen/YgOVXp -->
       <div id="dialogue" class="dialogue" aria-label="Game dialogue"></div>
+      <!-- aria-live -->
     </main>
   </body>
 </html>

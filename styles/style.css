@@ -105,6 +105,7 @@ h1 {
   width: 100%;
   height: 100%;
   background-image: url("../images/1950.jpg");
+  /*Source: https://www.freepik.com/free-vector/urban-building-skyline-panoramic-illustration-with-copyspace_7852734.htm#query=baseball%20field%20cartoon%20background&position=23&from_view=search&track=ais*/
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -245,14 +246,24 @@ h1 {
   display: block;
 }
 
+.sun-container {
+  position: absolute;
+  top: 7.5%;
+  left: 20.5%;
+  width: 71.8%;
+  height: 70%;
+  overflow: hidden;
+  transform: rotate(1.2deg);
+}
+
 .sun {
   position: relative;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: red;
-  animation: sun-move 60s 1 normal ease-in-out both 22s,
-    sun-color-change 60s 1 normal ease-in-out both 22s;
+  animation: sun-move 60s 1 normal ease-in-out both 16s,
+    sun-color-change 60s 1 normal ease-in-out both 16s;
 }
 
 @keyframes sun-move {
@@ -263,11 +274,11 @@ h1 {
   }
   50% {
     top: calc(0px + 100px); /* 100% down minus height of ball */
-    left: calc(50% - 50px); /* 50% across minus half width of ball */
+    left: calc(50% - 100px); /* 50% across minus half width of ball */
   }
   100% {
     top: calc(100%);
-    left: 0;
+    left: calc(0% - 100px);
   }
 }
 @keyframes sun-color-change {
