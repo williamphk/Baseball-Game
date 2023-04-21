@@ -8,9 +8,17 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -109,7 +117,7 @@ h1 {
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
-  animation: change-color 30s 1 normal ease-in-out both 52s;
+  animation: change-color 30s 1 normal ease-in-out both 50s;
 }
 
 @keyframes change-color {
@@ -291,4 +299,13 @@ h1 {
   100% {
     background-color: orangered;
   }
+}
+
+footer {
+  user-select: none;
+  position: absolute;
+  z-index: 1;
+  top: 97%;
+  text-align: center;
+  color: yellow;
 }
