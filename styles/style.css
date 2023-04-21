@@ -188,7 +188,7 @@ h1 {
   position: fixed;
   bottom: 20%;
   left: 25vw;
-  rotate: -10deg;
+  transform: rotate(-10deg);
   display: none;
   width: clamp(14.5625rem, 12.6366rem + 9.6296vw, 21.0625rem);
   height: 43px;
