@@ -9,7 +9,6 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
 }
@@ -17,7 +16,6 @@ body {
 nav {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -33,6 +31,7 @@ h1 {
   animation: title-color 4s linear, title-move 4s linear;
 }
 
+/* title move up */
 @keyframes title-move {
   0% {
     top: 100%;
@@ -45,6 +44,7 @@ h1 {
   }
 }
 
+/* title change color */
 @keyframes title-color {
   0% {
     color: yellow;
@@ -117,9 +117,11 @@ h1 {
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
-  animation: change-color 30s 1 normal ease-in-out both 50s;
+  /* animation delay for 47s for the sunset to go in half */
+  animation: change-color 30s 1 normal ease-in-out both 47s;
 }
 
+/* background image change color */
 @keyframes change-color {
   0% {
     filter: hue-rotate(0deg);
@@ -138,6 +140,21 @@ h1 {
   user-select: none;
   animation: ballFly 2s linear forwards infinite;
   opacity: 0;
+}
+
+/* ball fly animation */
+@keyframes ballFly {
+  0% {
+    opacity: 1;
+    transform: translateX(0vw) translateY(68vh) rotate(0deg);
+  }
+  50% {
+    transform: translateX(50vw) translateY(68vh) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(100vw) translateY(68vh) rotate(360deg);
+  }
 }
 
 .delay-first-instance {
@@ -159,6 +176,7 @@ h1 {
   background-color: #ffffff00;
 }
 
+/* for accessibility for the context of button */
 .screen-reader {
   display: block;
   height: 1px;
@@ -176,6 +194,7 @@ h1 {
   height: 43px;
 }
 
+/* for bat svg */
 .red {
   fill: #d7172a;
 }
@@ -192,20 +211,7 @@ h1 {
   animation: batMove 0.3s cubic-bezier(0.63, 0.09, 0.75, 0.46) 1 alternate;
 }
 
-@keyframes ballFly {
-  0% {
-    opacity: 1;
-    transform: translateX(0vw) translateY(68vh) rotate(0deg);
-  }
-  50% {
-    transform: translateX(50vw) translateY(68vh) rotate(180deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(100vw) translateY(68vh) rotate(360deg);
-  }
-}
-
+/* bat move animation */
 @keyframes batMove {
   0% {
     transform: rotate(10deg);
@@ -221,6 +227,7 @@ h1 {
   user-select: none;
 }
 
+/* ball hit animation */
 @keyframes ballHit {
   0% {
     transform: translateX(45vw) translateY(68vh) rotate(0deg);
@@ -231,6 +238,7 @@ h1 {
     font-size: 0px;
   }
 }
+
 .dialogue {
   position: fixed;
   width: 80%;
@@ -254,6 +262,7 @@ h1 {
   display: block;
 }
 
+/* the container for sun */
 .sun-container {
   position: absolute;
   top: 7.5%;
@@ -270,25 +279,28 @@ h1 {
   height: 50px;
   border-radius: 50%;
   background-color: red;
+  /* animation delay for 16s for dialogue to finish */
   animation: sun-move 60s 1 normal ease-in-out both 16s,
     sun-color-change 60s 1 normal ease-in-out both 16s;
 }
 
+/* sun move animation */
 @keyframes sun-move {
-  /* your keyframe styles go here */
   0% {
     top: calc(100%);
     left: 100%;
   }
   50% {
-    top: calc(0px + 100px); /* 100% down minus height of ball */
-    left: calc(50% - 100px); /* 50% across minus half width of ball */
+    top: calc(0px + 100px); /* 100% down minus height of sun */
+    left: calc(50% - 100px); /* 50% across minus half width of sun */
   }
   100% {
     top: calc(100%);
     left: calc(0% - 100px);
   }
 }
+
+/* sun color change animation */
 @keyframes sun-color-change {
   0% {
     background-color: red;

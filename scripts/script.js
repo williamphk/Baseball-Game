@@ -47,8 +47,10 @@ setTimeout(function typingEffect() {
     dialogue.innerHTML = "";
     setTimeout(typingEffect, 70);
   } else if (currentText === text3) {
-    //After text3
+    //after text3
     clickableArea.classList.add("show");
+    //for accessibility
+    dialogue.setAttribute("aria-live", "polite");
     dialogue.innerHTML = "Start!";
   }
 }, 4000);
@@ -92,16 +94,6 @@ bat.addEventListener("animationend", function (e) {
   bat.classList.remove("bat-click");
 });
 
-//
-ball.addEventListener("animationstart", function (e) {
-  if (e.animationName === "ballFly") {
-    console.log("The 'ballFly' animation has started");
-    let animationDuration = parseFloat(
-      getComputedStyle(ball).animationDuration
-    );
-  }
-});
-
 clickableArea.addEventListener("click", checkBallPosition);
 
 //Change the speed of the ball
@@ -122,7 +114,7 @@ function decreaseAnimationDuration(input) {
   //console.log("Updated animation duration:", ball.style.animationDuration);
 }
 
-//If the sun is set, the game will over
+//If the sun is set, the game will be over
 sun.addEventListener("animationend", function () {
   if (!isWin) {
     dialogue.innerHTML = "Game Over";
